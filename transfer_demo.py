@@ -49,7 +49,7 @@ def content_transform():
 
 
 class StyleTransfer:
-    bin_path = "/Users/saket/Documents/workdir/harvard_courses/sem2/ac109b/harvard_CS109B/StyleTransfer/experiments"
+    bin_path = "."
     decoder_path = f"{bin_path}/decoder_iter_160000.pth"
     Trans_path = f"{bin_path}/transformer_iter_160000.pth"
     embedding_path = f"{bin_path}/embedding_iter_160000.pth"
