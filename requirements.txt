@@ -3,3 +3,4 @@ Pillow
 numpy
 scipy
 torchvision==0.15.1
+matplotlib
