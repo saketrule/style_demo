@@ -17,6 +17,8 @@ from function import normal
 import numpy as np
 import time
 import io 
+import os
+import gdown
 
 def test_transform(size, crop):
     transform_list = []
@@ -53,6 +55,20 @@ class StyleTransfer:
     embedding_path = f"{bin_path}/embedding_iter_160000.pth"
     a = 1.0
     vgg = f"{bin_path}/vgg_normalised.pth"
+
+
+paths = {
+    StyleTransfer.vgg: "https://drive.google.com/uc?id=1BinnwM5AmIcVubr16tPTqxMjUCE8iu5M",
+    StyleTransfer.embedding_path: "https://drive.google.com/uc?id=1C3xzTOWx8dUXXybxZwmjijZN8SrC3e4B",
+    StyleTransfer.decoder_path: "https://drive.google.com/uc?id=1fIIVMTA_tPuaAAFtqizr6sd1XV7CX6F9",
+    StyleTransfer.Trans_path: "https://drive.google.com/uc?id=1dnobsaLeE889T_LncCkAA2RkqzwsfHYy"
+}
+
+for local_path, url in paths.items():
+    if not os.path.exists(local_path):
+        gdown.download(url, local_path, quiet=False)
+    else:
+        print(f"File '{local_path}' already exists. Skipping download.")
 
 
 def tensor_to_image_bytes(tensor):
